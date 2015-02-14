@@ -7,14 +7,15 @@
   </head>
   <body>
   <font size=7>
-  <p id="log">log: </p>
+  <p id="log">log2: </p>
   </font>
   </body>
 
 <script type="text/javascript" charset="utf-8">
 
-document.addEventListener('deviceready', function(){
+document.addEventListener('deviceready', onDeviceReady, false);
 
+function onDeviceReady() {
 //[http://docs.phonegap.com/en/edge/cordova_file_file.md.html#FileTransfer]
 	young_log("init1");
 	young_log("init2");
@@ -46,7 +47,7 @@ document.addEventListener('deviceready', function(){
 			},
 		false
 		);
-};
+}
 
 function young_log(message)
 {
