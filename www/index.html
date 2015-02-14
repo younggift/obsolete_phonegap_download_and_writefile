@@ -7,7 +7,7 @@
   </head>
   <body>
   <font size=7>
-  <p id="log">log1: </p>
+  <p id="log">log: </p>
   </font>
   </body>
 
@@ -15,9 +15,10 @@
 
 
 //[http://docs.phonegap.com/en/edge/cordova_file_file.md.html#FileTransfer]
-	young_log("init");
-
+	young_log("init1");
+	young_log("init2");
 	var uri = encodeURI("http://192.168.1.102/apk/test.zip");
+	young_log("init3");
 	var filePath = "/test.zip";
 	
 	var fileTransfer = new FileTransfer();
