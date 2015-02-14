@@ -28,18 +28,18 @@
 			loadingStatus.increment();
 		}
 	};
-
+	young_log("after onprogress.");
 	fileTransfer.download(
 		uri,
 		filePath,
 		function(entry) {
-        young_log("download complete: " + entry.fullPath);
-    },
-    function(error) {
-        young_log("download error source " + error.source);
-        young_log("download error target " + error.target);
-        young_log("upload error code" + error.code);
-    },
+			young_log("download complete: " + entry.fullPath);
+			},
+		function(error) {
+			young_log("download error source " + error.source);
+			young_log("download error target " + error.target);
+			young_log("upload error code" + error.code);
+			},
     false
 );
 
