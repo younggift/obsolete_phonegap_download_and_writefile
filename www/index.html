@@ -21,13 +21,13 @@
 	var filePath = "/test.zip";
 	
 	var fileTransfer = new FileTransfer();
-	fileTransfer.onprogress = function(progressEvent) {
+/*	fileTransfer.onprogress = function(progressEvent) {
 		if (progressEvent.lengthComputable) {
 			loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
 		} else {
 			loadingStatus.increment();
 		}
-	};
+	};*/
 	young_log("after onprogress.");
 	fileTransfer.download(
 		uri,
