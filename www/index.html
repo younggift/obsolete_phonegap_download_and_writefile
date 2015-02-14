@@ -7,14 +7,46 @@
   </head>
   <body>
   <font size=7>
-  <p id="aaa">aaa</p>
+  <p id="log">log: </p>
   </font>
   </body>
 
 <script type="text/javascript" charset="utf-8">
 
-	document.getElementById("aaa").innerHTML += "init<br>";
 
+//[http://docs.phonegap.com/en/edge/cordova_file_file.md.html#FileTransfer]
+	young_log("init");
+
+	var uri = encodeURI("http://192.168.1.102/apk/test.zip");
+	var filePath = "/test.zip";
+	
+	var fileTransfer = new FileTransfer();
+	fileTransfer.onprogress = function(progressEvent) {
+		if (progressEvent.lengthComputable) {
+			loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+		} else {
+			loadingStatus.increment();
+		}
+	};
+
+	fileTransfer.download(
+		uri,
+		filePath,
+		function(entry) {
+        young_log("download complete: " + entry.fullPath);
+    },
+    function(error) {
+        young_log("download error source " + error.source);
+        young_log("download error target " + error.target);
+        young_log("upload error code" + error.code);
+    },
+    false
+);
+
+function young_log(message)
+{
+	document.getElementById("log").innerHTML += (message + "<br>");
+}	
     </script>
  
 </html>
